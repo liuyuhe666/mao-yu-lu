@@ -1,16 +1,31 @@
-import process from 'node:process'
+'use client'
+
 import Image from 'next/image'
+import { useEffect, useState } from 'react'
 
-const apiBaseUrl = process.env.NODE_ENV === 'production'
-  ? process.env.NEXT_PUBLIC_API_BASE_URL
-  : 'http://localhost:3000'
+// eslint-disable-next-line node/prefer-global/process
+const apiBaseUrl = process.env.NODE_ENV === 'production' ? process.env.NEXT_PUBLIC_API_BASE_URL : 'http://localhost:3000'
 
-export default async function Home() {
-  const text = await fetch(`${apiBaseUrl}/api/mao`, { cache: 'no-store' }).then(
-    res => res.json(),
-  ).then(
-    data => data.data,
-  )
+export default function Home() {
+  const [text, setText] = useState('')
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const text = await fetch(`${apiBaseUrl}/api/mao`, { cache: 'no-store' }).then(
+        res => res.json(),
+      ).then(
+        data => data.data,
+      )
+      setText(text)
+    }
+
+    fetchData()
+
+    const timer = setInterval(fetchData, 60000)
+
+    return () => clearInterval(timer)
+  }, [])
+
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <div className="w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
