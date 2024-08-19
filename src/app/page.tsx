@@ -3,7 +3,6 @@
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
 
-// eslint-disable-next-line node/prefer-global/process
 const apiBaseUrl = process.env.NODE_ENV === 'production' ? process.env.NEXT_PUBLIC_API_BASE_URL : 'http://localhost:3000'
 
 export default function Home() {

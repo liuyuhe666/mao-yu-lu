@@ -6,7 +6,6 @@ import { PrismaClient } from '@prisma/client'
 const prisma = new PrismaClient()
 
 async function main() {
-  // eslint-disable-next-line no-console
   console.log('Start seeding ...')
   const filePath = path.join(process.cwd(), 'data', 'maoyulu.txt')
   const fileContent = fs.readFileSync(filePath, 'utf-8')
@@ -17,7 +16,6 @@ async function main() {
         content: text.trim(),
       },
     })
-    // eslint-disable-next-line no-console
     console.log(result.id)
   }
 }
