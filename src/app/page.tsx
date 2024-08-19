@@ -45,8 +45,10 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="w-full max-w-5xl h-full flex flex-col justify-center grow text-2xl font-semibold text-white">
-        {text}
+      <div className="w-full max-w-5xl h-full flex flex-col justify-center grow">
+        <div className="text-2xl font-semibold text-white text-left">『</div>
+        <div className="p-8 text-2xl font-semibold text-white text-center">{text}</div>
+        <div className="text-2xl font-semibold text-white text-right">』</div>
       </div>
     </main>
   )

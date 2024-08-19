@@ -5,8 +5,9 @@ import './globals.css'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: '疯狂的旺佐',
-  description: '毛主席语录',
+  title: '疯狂的网左',
+  description: '随机一句毛语录',
+  keywords: ['毛语录', '网左', '我的好朋友左左'],
 }
 
 export default function RootLayout({
