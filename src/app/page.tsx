@@ -2,6 +2,7 @@
 
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
+import Typewriter from 'typewriter-effect'
 
 const apiBaseUrl = process.env.NODE_ENV === 'production' ? process.env.NEXT_PUBLIC_API_BASE_URL : 'http://localhost:3000'
 
@@ -46,7 +47,14 @@ export default function Home() {
 
       <div className="w-full max-w-5xl h-full flex flex-col justify-center grow">
         <div className="text-2xl font-semibold text-white text-left">『</div>
-        <div className="p-8 text-2xl font-semibold text-white text-center">{text}</div>
+        <div className="p-8 text-2xl font-semibold text-white text-center">
+          <Typewriter options={{
+            strings: text,
+            autoStart: true,
+            loop: true,
+          }}
+          />
+        </div>
         <div className="text-2xl font-semibold text-white text-right">』</div>
       </div>
     </main>
